@@ -33,8 +33,8 @@ public class ServerInputProcessor {
      * @return ImageIcon für JLabel.
      */
     public ImageIcon byteArrayToImageIcon(byte[] webcamArray){
-        BufferedImage img2 = createRGBImage(webcamArray, (int) WebcamResolution.VGA.getSize().getWidth(), (int)WebcamResolution.VGA.getSize().getHeight());
-        return new ImageIcon(img2);
+        BufferedImage img = createRGBImage(webcamArray, (int) WebcamResolution.VGA.getSize().getWidth(), (int)WebcamResolution.VGA.getSize().getHeight());
+        return new ImageIcon(img);
     }
 
     /**
