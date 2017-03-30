@@ -20,8 +20,8 @@ public class ClientConnectionProvider {
             e.printStackTrace();
         }
 
-        new ClientTextWriter(server).start();
-        new ClientTextListener(server).start();
+        //new ClientTextWriter(server).start();
+        //new ClientTextListener(server).start();
         new ClientWebcamImageListener(server).start();
 
     }
