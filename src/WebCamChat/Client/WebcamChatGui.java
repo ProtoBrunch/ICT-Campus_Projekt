@@ -6,12 +6,16 @@ import com.github.sarxos.webcam.WebcamResolution;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by meiersila on 30.03.2017.
  * WebcamChatGui welches sich beim Verbinden mit einem anderen Client öffnet.
  */
-public class WebcamChatGui {
+public class WebcamChatGui implements ActionListener {
     private JFrame frame;
 
     private JPanel panel_0;
@@ -43,6 +47,7 @@ public class WebcamChatGui {
 
         textArea_0_1_0_0 = new JTextArea();
         button_0_1_0_0 = new JButton("Senden");
+        button_0_1_0_0.addActionListener(this);
         webcamPanel_0_0_0 = new JLabel();
         webcam.setViewSize(WebcamResolution.VGA.getSize());
         webcamPanel_0_0_1 = new WebcamPanel(webcam);
@@ -77,6 +82,16 @@ public class WebcamChatGui {
         frame.add(panel_0);
 
         frame.setVisible(true);
+    }
+
+    /**
+     * Reaktion auf Buttongedrückt.
+     * @param e Event, in diesem Fall vom Button
+     */
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button_0_1_0_0) {
+            System.out.println("Button got pressed!");
+        }
     }
 
     /**
