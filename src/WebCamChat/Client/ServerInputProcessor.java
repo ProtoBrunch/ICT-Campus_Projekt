@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
-import java.nio.ByteBuffer;
 
 /**
  * Created by meiersila on 30.03.2017.
