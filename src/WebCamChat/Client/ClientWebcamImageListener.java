@@ -1,5 +1,7 @@
 package WebCamChat.Client;
 
+import com.github.sarxos.webcam.Webcam;
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -23,10 +25,15 @@ public class ClientWebcamImageListener extends Thread {
     }
 
     public void run(){
+        WebcamChatGui webcamPanel = new WebcamChatGui(Webcam.getDefault());
+        webcamPanel.setComponents();
         while(true){
             try {
                 int length = webcamFromServer.readInt();
                 byte[] webcamIn = new byte[length];
+                webcamFromServer.readFully(webcamIn);
+                webcamPanel.changeWebcamImageIcon(new ServerInputProcessor().byteArrayToImageIcon(webcamIn));
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
