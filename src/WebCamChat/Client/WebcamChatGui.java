@@ -8,6 +8,7 @@ import java.awt.*;
 
 /**
  * Created by meiersila on 30.03.2017.
+ * WebcamChatGui welches sich beim Verbinden mit einem anderen Client öffnet.
  */
 public class WebcamChatGui {
     private JFrame frame;
@@ -25,6 +26,10 @@ public class WebcamChatGui {
     private JTextArea textArea_0_1_0_0;
     private JButton button_0_1_0_0;
 
+    /**
+     * Konstruktor. Alle benötigten Komponenten werden initialisiert. Für den webcamPanel wird der Parameter verwendet
+     * @param webcam Verwendete Webcam
+     */
     public WebcamChatGui(Webcam webcam){
         frame = new JFrame("Webcam Chat");
         panel_0 = new JPanel();
@@ -41,6 +46,9 @@ public class WebcamChatGui {
         webcamPanel_0_0_1 = new WebcamPanel(webcam);
     }
 
+    /**
+     * Wird aufgerufen, um das Gui anzuzeigen und die Komponenten im Frame zusetzen.
+     */
     public void setComponents(){
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(600,450);
@@ -69,6 +77,10 @@ public class WebcamChatGui {
         frame.setVisible(true);
     }
 
+    /**
+     * Ändert das Icon vom JLabel webcamPanel.
+     * @param newImage ImageIcon welches vom Bytearray berechnet wurde.
+     */
     public void changeWebcamImageIcon(ImageIcon newImage){
         this.webcamPanel_0_0_0.setIcon(newImage);
     }
