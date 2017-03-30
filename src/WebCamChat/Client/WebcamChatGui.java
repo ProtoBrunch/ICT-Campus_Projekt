@@ -2,6 +2,7 @@ package WebCamChat.Client;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
+import com.github.sarxos.webcam.WebcamResolution;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,6 +44,7 @@ public class WebcamChatGui {
         textArea_0_1_0_0 = new JTextArea();
         button_0_1_0_0 = new JButton("Senden");
         webcamPanel_0_0_0 = new JLabel();
+        webcam.setViewSize(WebcamResolution.VGA.getSize());
         webcamPanel_0_0_1 = new WebcamPanel(webcam);
     }
 
