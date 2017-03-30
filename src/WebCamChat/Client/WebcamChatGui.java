@@ -24,7 +24,7 @@ public class WebcamChatGui implements ActionListener {
     private JPanel panel_0_1;
 
     private JLabel webcamPanel_0_0_0;
-    private WebcamPanel webcamPanel_0_0_1;
+    private JLabel webcamPanel_0_0_1; // Changed Object-Type from Webcam to JLabel for testing purposes
 
     private JLabel label_0_1_0;
     private JPanel panel_0_1_0;
@@ -50,7 +50,7 @@ public class WebcamChatGui implements ActionListener {
         button_0_1_0_0.addActionListener(this);
         webcamPanel_0_0_0 = new JLabel();
         webcam.setViewSize(WebcamResolution.VGA.getSize());
-        webcamPanel_0_0_1 = new WebcamPanel(webcam);
+        webcamPanel_0_0_1 = new JLabel(); //changed Webcam object for testing purposes to Jlabel-object
     }
 
     /**

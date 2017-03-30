@@ -33,9 +33,8 @@ public class ServerWebcamImageWriter extends Thread{
         while(true){
             webcamStream = webcamImageToByteArray(webcam);
             try {
-                int count;
-                while((count = webcamStream.length) > 0)
-                outToClient.write(webcamStream, 0, count);
+                outToClient.writeInt(webcamStream.length); // added this tidbit
+                outToClient.write(webcamStream);
             } catch (IOException e) {
                 e.printStackTrace();
             }
