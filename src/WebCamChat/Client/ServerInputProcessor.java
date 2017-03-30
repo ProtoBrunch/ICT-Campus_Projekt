@@ -1,16 +1,25 @@
 package WebCamChat.Client;
 
+import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
+import java.nio.ByteBuffer;
 
 /**
  * Created by meiersila on 30.03.2017.
  */
 public class ServerInputProcessor {
+
+    public byte[] webcamImageToByteArray(Webcam webcam){
+        ByteBuffer byteBuffer = webcam.getImageBytes();
+        byte[] data = new byte[byteBuffer.capacity()];
+        ((ByteBuffer) byteBuffer.duplicate().clear()).get(data);
+        return data;
+    }
 
     public ImageIcon byteArrayToImageIcon(byte[] webcamArray){
         BufferedImage img2 = createRGBImage(webcamArray, (int) WebcamResolution.VGA.getSize().getWidth(), (int)WebcamResolution.VGA.getSize().getHeight());
