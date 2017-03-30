@@ -10,6 +10,7 @@ import java.awt.image.*;
 import java.nio.ByteBuffer;
 
 /**
+ * Logik des Clients.
  * Created by meiersila on 30.03.2017.
  */
 public class ServerInputProcessor {
