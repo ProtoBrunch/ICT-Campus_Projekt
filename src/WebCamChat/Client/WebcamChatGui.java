@@ -43,9 +43,9 @@ public class WebcamChatGui implements ActionListener {
         panel_0_1 = new JPanel();
 
         panel_0_1_0 = new JPanel();
-        label_0_1_0 = new JLabel();
+        label_0_1_0 = new JLabel("testasdfasdfasdfasdfasdfasdfdsfsdfasdf");
 
-        textArea_0_1_0_0 = new JTextArea();
+        textArea_0_1_0_0 = new JTextArea("test");
         button_0_1_0_0 = new JButton("Senden");
         button_0_1_0_0.addActionListener(this);
         webcamPanel_0_0_0 = new JLabel();
