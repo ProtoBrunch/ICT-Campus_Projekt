@@ -1,9 +1,5 @@
 package WebCamChat.Client;
 
-import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamPanel;
-import com.github.sarxos.webcam.WebcamResolution;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -98,7 +94,6 @@ public class WebcamChatGui implements ActionListener {
             textArea_0_1_0_0.setColumns(frame.getWidth()/40);
             SwingUtilities.updateComponentTreeUI(textArea_0_1_0_0);
             SwingUtilities.updateComponentTreeUI(panel_0_1_0);
-            panel_0_1_0.repaint();
         }
     }
 
@@ -110,7 +105,7 @@ public class WebcamChatGui implements ActionListener {
     public void changeWebcamImageIcon(ImageIcon newImage, String location){
         switch(location){
             case "server":
-                this.webcamPanel_0_0_0.setIcon(newImage);
+                this.webcamPanel_0_0_0.setIcon(newImage); //Webcam Image from other client
                 break;
             case "client":
                 this.webcamPanel_0_0_1.setIcon(newImage); //Local Webcam Image
