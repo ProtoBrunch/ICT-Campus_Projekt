@@ -20,6 +20,7 @@ public class StartGui {
     private JPanel panel_0_6;
     private JPanel panel_0_7;
     private JPanel panel_0_8;
+    private JPanel fillPanel;
     private JLabel ipLabel;
     private JTextArea ipTextArea;
     private JLabel portLabel;
@@ -33,6 +34,7 @@ public class StartGui {
         frame = new JFrame("Skipe");
         panel_0 = new JPanel();
 
+        fillPanel = new JPanel();
         panel_0_0 = new JPanel();
         panel_0_1 = new JPanel();
         panel_0_2 = new JPanel();
@@ -44,11 +46,11 @@ public class StartGui {
         panel_0_8 = new JPanel();
 
         ipLabel = new JLabel("IP angeben");
-        ipTextArea = new JTextArea(2,6);
+        ipTextArea = new JTextArea(1,10);
         portLabel = new JLabel("Port angeben");
-        portTextArea = new JTextArea(2,3);
+        portTextArea = new JTextArea(1,10);
         userNameLabel = new JLabel("Username angeben");
-        userNameTextArea = new JTextArea(2,6);
+        userNameTextArea = new JTextArea(1,10);
         chatButton = new JButton("Chatraum");
         webcamChatButton = new JButton("Webcam Chatraum");
     }
@@ -61,16 +63,27 @@ public class StartGui {
 
         panel_0_0.setLayout(new GridLayout(4,2));
 
-        panel_0_0.add(ipLabel);
-        panel_0_0.add(ipTextArea);
-        panel_0_0.add(portLabel);
-        panel_0_0.add(portTextArea);
-        panel_0_0.add(userNameLabel);
-        panel_0_0.add(userNameTextArea);
-        panel_0_0.add(chatButton);
-        panel_0_0.add(webcamChatButton);
+        panel_0_1.add(ipLabel);
+        panel_0_2.add(ipTextArea);
+        panel_0_3.add(portLabel);
+        panel_0_4.add(portTextArea);
+        panel_0_5.add(userNameLabel);
+        panel_0_6.add(userNameTextArea);
+        panel_0_7.add(chatButton);
+        panel_0_8.add(webcamChatButton);
+
+        panel_0_0.add(panel_0_1);
+        panel_0_0.add(panel_0_2);
+        panel_0_0.add(panel_0_3);
+        panel_0_0.add(panel_0_4);
+        panel_0_0.add(panel_0_5);
+        panel_0_0.add(panel_0_6);
+        panel_0_0.add(panel_0_7);
+        panel_0_0.add(panel_0_8);
 
         panel_0.add(panel_0_0);
+        panel_0.add(fillPanel);
+        panel_0.add(fillPanel);
 
         frame.add(panel_0);
 
