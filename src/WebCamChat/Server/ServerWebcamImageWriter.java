@@ -47,6 +47,7 @@ public class ServerWebcamImageWriter extends Thread{
                 inFromProvider.readFully(webcamStream ,0, length);
                 outToReceiver.write(length);
                 outToReceiver.write(webcamStream);
+                outToReceiver.flush();
             } catch (SocketException e){
                 this.interrupt();
             } catch(EOFException eof){

@@ -8,13 +8,11 @@ import java.net.Socket;
  * Created by berberatr on 31.03.2017.
  */
 public class ClientWebcamImageWriter extends Thread{
-    Socket server;
-    DataOutputStream webcamToServer;
+    private DataOutputStream webcamToServer;
 
     ClientWebcamImageWriter(Socket server){
         try{
-            this.server = server;
-            webcamToServer = new DataOutputStream(server.getOutputStream());
+            webcamToServer = new DataOutputStream(server.getOutputStream() );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -26,6 +24,7 @@ public class ClientWebcamImageWriter extends Thread{
                 byte[] webcamStream = ClientConnectionProvider.webcamImageByteArray;
                 webcamToServer.writeInt(webcamStream.length);
                 webcamToServer.write(webcamStream);
+                webcamToServer.flush();
                 } catch (IOException e) {
                 e.printStackTrace();
             } catch (NullPointerException e){
