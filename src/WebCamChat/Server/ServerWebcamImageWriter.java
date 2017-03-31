@@ -4,26 +4,31 @@ import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 
 import java.awt.*;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.ByteBuffer;
 
 /**
  * Created by berberatr on 30.03.2017.
  */
 public class ServerWebcamImageWriter extends Thread{
-    private Socket client;
-    private DataOutputStream outToClient;
-    private Webcam webcam;
+    private Socket clientProvidingImage;
+    private Socket clientReceivingImage;
+    private DataInputStream inFromProvider;
+    private DataOutputStream outToReceiver;
+    private byte[] webcamStream;
 
-    ServerWebcamImageWriter(Socket client){
+
+    ServerWebcamImageWriter(Socket clientProvidingImage, Socket clientReceivingImage){
         try{
-            this.client = client;
-            outToClient = new DataOutputStream(client.getOutputStream());
-            webcam = Webcam.getDefault();
-            webcam.setViewSize(new Dimension(640 , 480));
-            webcam.open();
+            this.clientProvidingImage = clientProvidingImage;
+            inFromProvider = new DataInputStream(clientProvidingImage.getInputStream());
+            this.clientReceivingImage = clientReceivingImage;
+            outToReceiver = new DataOutputStream(clientReceivingImage.getOutputStream());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,24 +36,21 @@ public class ServerWebcamImageWriter extends Thread{
     }
 
     public void run(){
-        byte[] webcamStream;
+        int length;
+
         while(true){
-            webcamStream = webcamImageToByteArray(webcam);
             try {
-                outToClient.writeInt(webcamStream.length); // added this tidbit
-                outToClient.write(webcamStream);
+            length = inFromProvider.readInt();
+            if(length > 0)
+                webcamStream = new byte[length];
+                inFromProvider.readFully(webcamStream ,0, length);
+                outToReceiver.write(length);
+                outToReceiver.write(webcamStream);
+            } catch (SocketException e){
+                this.interrupt();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-
-    private byte[] webcamImageToByteArray(Webcam webcam){
-        ByteBuffer byteBuffer = webcam.getImageBytes();
-        byte[] data = new byte[byteBuffer.capacity()];
-        ((ByteBuffer) byteBuffer.duplicate().clear()).get(data);
-        return data;
-    }
-
-
 }

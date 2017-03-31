@@ -12,6 +12,8 @@ public class ServerConnectionProvider extends Thread{
 
     public static void main(String[] args) {
         int port = 50000;
+        Socket client1;
+        Socket client2;
 
         try(ServerSocket server = new ServerSocket(port)){
             System.out.println("Server online.");
@@ -19,10 +21,11 @@ public class ServerConnectionProvider extends Thread{
             System.out.println("Server Adress is: "+ipAdress+":"+port);
 
             while(true){
-                Socket client = server.accept();
-               // new ServerTextListener(client).start();
-               // new ServerTextWriter(client).start();
-                new ServerWebcamImageWriter(client).start();
+                client1 = server.accept();
+                client2 = server.accept();
+                new ServerWebcamImageWriter(client1, client2).start();
+                new ServerWebcamImageWriter(client2, client1).start();
+
             }
 
         } catch (IOException e) {

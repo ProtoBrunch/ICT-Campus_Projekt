@@ -22,7 +22,7 @@ public class WebcamChatGui implements ActionListener {
     private JPanel panel_0_1;
 
     private JLabel webcamPanel_0_0_0;
-    private WebcamPanel webcamPanel_0_0_1;
+    private JLabel webcamPanel_0_0_1;
 
     private JPanel panel_0_1_0;
     private JPanel panel_0_1_1;
@@ -47,8 +47,7 @@ public class WebcamChatGui implements ActionListener {
         button_0_1_0_0 = new JButton("Senden");
         button_0_1_0_0.addActionListener(this);
         webcamPanel_0_0_0 = new JLabel();
-        webcam.setViewSize(WebcamResolution.VGA.getSize());
-        webcamPanel_0_0_1 = new WebcamPanel(webcam);
+        webcamPanel_0_0_1 = new JLabel();
     }
 
     /**
