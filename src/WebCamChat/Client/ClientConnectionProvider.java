@@ -9,7 +9,7 @@ import java.net.Socket;
 public class ClientConnectionProvider {
 
     public static void main(String[] args) {
-        String host = "172.16.2.156";
+        String host = "172.16.2.137"; //changed IP back to localhost
         int port = 50000;
         Socket server = null;
 
@@ -20,8 +20,8 @@ public class ClientConnectionProvider {
             e.printStackTrace();
         }
 
-        new ClientTextWriter(server).start();
-        new ClientTextListener(server).start();
+        //new ClientTextWriter(server).start();
+        //new ClientTextListener(server).start();
         new ClientWebcamImageListener(server).start();
 
     }

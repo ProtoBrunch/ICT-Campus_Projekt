@@ -8,8 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by meiersila on 30.03.2017.
@@ -26,8 +24,8 @@ public class WebcamChatGui implements ActionListener {
     private JLabel webcamPanel_0_0_0;
     private WebcamPanel webcamPanel_0_0_1;
 
-    private JLabel label_0_1_0;
     private JPanel panel_0_1_0;
+    private JPanel panel_0_1_1;
     private JTextArea textArea_0_1_0_0;
     private JButton button_0_1_0_0;
 
@@ -43,7 +41,7 @@ public class WebcamChatGui implements ActionListener {
         panel_0_1 = new JPanel();
 
         panel_0_1_0 = new JPanel();
-        label_0_1_0 = new JLabel("testasdfasdfasdfasdfasdfasdfdsfsdfasdf");
+        panel_0_1_1 = new JPanel();
 
         textArea_0_1_0_0 = new JTextArea("test");
         button_0_1_0_0 = new JButton("Senden");
@@ -65,13 +63,13 @@ public class WebcamChatGui implements ActionListener {
         panel_0_0.setLayout(new GridLayout(2,1));
         panel_0_1.setLayout(new BorderLayout());
 
-        panel_0_1_0.setLayout(new FlowLayout());
+        panel_0_1_1.setLayout(new FlowLayout());
 
-        panel_0_1_0.add(textArea_0_1_0_0);
-        panel_0_1_0.add(button_0_1_0_0);
+        panel_0_1_1.add(textArea_0_1_0_0);
+        panel_0_1_1.add(button_0_1_0_0);
 
-        panel_0_1.add(label_0_1_0, "Center");
-        panel_0_1.add(panel_0_1_0, "South");
+        panel_0_1.add(panel_0_1_0, "Center");
+        panel_0_1.add(panel_0_1_1, "South");
 
         panel_0_0.add(webcamPanel_0_0_0);
         panel_0_0.add(webcamPanel_0_0_1);

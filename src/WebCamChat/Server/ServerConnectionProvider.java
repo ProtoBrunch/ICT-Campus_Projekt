@@ -20,8 +20,8 @@ public class ServerConnectionProvider extends Thread{
 
             while(true){
                 Socket client = server.accept();
-                new ServerTextListener(client).start();
-                new ServerTextWriter(client).start();
+               // new ServerTextListener(client).start();
+               // new ServerTextWriter(client).start();
                 new ServerWebcamImageWriter(client).start();
             }
 
