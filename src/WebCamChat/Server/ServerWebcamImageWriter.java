@@ -43,6 +43,7 @@ public class ServerWebcamImageWriter extends Thread{
             length = inFromProvider.readInt();
             if(length > 0)
                 webcamStream = new byte[length];
+                System.out.println(length);
                 inFromProvider.readFully(webcamStream ,0, length);
                 outToReceiver.write(length);
                 outToReceiver.write(webcamStream);

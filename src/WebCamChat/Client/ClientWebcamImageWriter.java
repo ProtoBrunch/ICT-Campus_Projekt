@@ -24,13 +24,12 @@ public class ClientWebcamImageWriter extends Thread{
         byte[] webcamStream = ClientConnectionProvider.webcamImageByteArray;
         while(true){
             try {
-                if(webcamStream.length > 0) {
-                    webcamToServer.writeInt(webcamStream.length);
-                    webcamToServer.write(webcamStream);
-                }
-            } catch (IOException e) {
+                webcamToServer.writeInt(webcamStream.length);
+                webcamToServer.write(webcamStream);
+                } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
     }
 }
