@@ -3,3 +3,4 @@ out/production/ICT-Campus_Projekt/Main.class
 out/production/ICT-Campus_Projekt/WebCamChat/Client/ChatGui.class
 *.class
 hs_err_pid5872.log
+*.log

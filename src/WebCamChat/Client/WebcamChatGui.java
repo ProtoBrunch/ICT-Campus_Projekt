@@ -31,9 +31,8 @@ public class WebcamChatGui implements ActionListener {
 
     /**
      * Konstruktor. Alle benötigten Komponenten werden initialisiert. Für den webcamPanel wird der Parameter verwendet
-     * @param webcam Verwendete Webcam
      */
-    public WebcamChatGui(Webcam webcam){
+    public WebcamChatGui(){
         frame = new JFrame("Webcam Chat");
         panel_0 = new JPanel();
 

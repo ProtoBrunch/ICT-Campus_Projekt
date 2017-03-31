@@ -7,7 +7,7 @@ import com.github.sarxos.webcam.Webcam;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Telö World.");
-        WebcamChatGui wcg = new WebcamChatGui(Webcam.getDefault());
+        WebcamChatGui wcg = new WebcamChatGui();
         wcg.setComponents();
     }
 }
