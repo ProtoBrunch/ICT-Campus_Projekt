@@ -37,6 +37,8 @@ public class ClientWebcamImageListener extends Thread {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (NullPointerException e){
+                
             }
 
         }

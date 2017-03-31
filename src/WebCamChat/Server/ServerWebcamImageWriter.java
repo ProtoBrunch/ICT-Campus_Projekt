@@ -6,6 +6,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
@@ -49,6 +50,8 @@ public class ServerWebcamImageWriter extends Thread{
                 outToReceiver.write(webcamStream);
             } catch (SocketException e){
                 this.interrupt();
+            } catch(EOFException eof){
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
