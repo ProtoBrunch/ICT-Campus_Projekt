@@ -28,6 +28,8 @@ public class ClientWebcamImageWriter extends Thread{
                 webcamToServer.write(webcamStream);
                 } catch (IOException e) {
                 e.printStackTrace();
+            } catch (NullPointerException e){
+
             }
 
         }
