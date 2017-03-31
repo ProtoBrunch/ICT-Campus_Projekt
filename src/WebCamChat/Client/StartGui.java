@@ -10,7 +10,7 @@ public class StartGui {
     private JPanel panel_0;
 
     public StartGui(){
-        frame = new JFrame("Skype Ripoff");
+        frame = new JFrame("Skipe");
         panel_0 = new JPanel();
     }
 }
