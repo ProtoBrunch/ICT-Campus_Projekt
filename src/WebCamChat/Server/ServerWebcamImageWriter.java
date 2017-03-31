@@ -4,10 +4,7 @@ import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 
 import java.awt.*;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
 import java.nio.ByteBuffer;
@@ -26,9 +23,9 @@ public class ServerWebcamImageWriter extends Thread{
     ServerWebcamImageWriter(Socket clientProvidingImage, Socket clientReceivingImage){
         try{
             this.clientProvidingImage = clientProvidingImage;
-            inFromProvider = new DataInputStream(clientProvidingImage.getInputStream());
+            inFromProvider = new DataInputStream(new BufferedInputStream(clientProvidingImage.getInputStream()));
             this.clientReceivingImage = clientReceivingImage;
-            outToReceiver = new DataOutputStream(clientReceivingImage.getOutputStream());
+            outToReceiver = new DataOutputStream(new BufferedOutputStream(clientReceivingImage.getOutputStream()));
 
         } catch (IOException e) {
             e.printStackTrace();

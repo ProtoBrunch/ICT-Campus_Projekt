@@ -1,5 +1,6 @@
 package WebCamChat.Client;
 
+import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -12,7 +13,7 @@ public class ClientWebcamImageWriter extends Thread{
 
     ClientWebcamImageWriter(Socket server){
         try{
-            webcamToServer = new DataOutputStream(server.getOutputStream() );
+            webcamToServer = new DataOutputStream(new BufferedOutputStream(server.getOutputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }

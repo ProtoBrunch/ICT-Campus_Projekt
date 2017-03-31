@@ -1,5 +1,6 @@
 package WebCamChat.Client;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -15,7 +16,7 @@ public class ClientWebcamImageListener extends Thread {
     ClientWebcamImageListener(Socket server){
         try{
             this.server = server;
-            webcamFromServer = new DataInputStream(server.getInputStream());
+            webcamFromServer = new DataInputStream(new BufferedInputStream(server.getInputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
