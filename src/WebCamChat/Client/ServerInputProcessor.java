@@ -32,8 +32,8 @@ public class ServerInputProcessor {
      * @param webcamArray ByteArray von der Webcam
      * @return ImageIcon für JLabel.
      */
-    public ImageIcon byteArrayToImageIcon(byte[] webcamArray){
-        BufferedImage img = createRGBImage(webcamArray, (int) WebcamResolution.VGA.getSize().getWidth(), (int)WebcamResolution.VGA.getSize().getHeight());
+    public ImageIcon byteArrayToImageIcon(byte[] webcamArray, int byteArrayLength){
+        BufferedImage img = createRGBImage(webcamArray, (int) WebcamResolution.VGA.getSize().getWidth(), (int)WebcamResolution.VGA.getSize().getHeight(), byteArrayLength );
         return new ImageIcon(img);
     }
 
@@ -44,8 +44,8 @@ public class ServerInputProcessor {
      * @param height Höhe des urpsrünglichen Bildes
      * @return BufferedImage wird zurück gegeben.
      */
-    private static BufferedImage createRGBImage(byte[] bytes, int width, int height) {
-        DataBufferByte buffer = new DataBufferByte(bytes, bytes.length);
+    private static BufferedImage createRGBImage(byte[] bytes, int width, int height, int byteArrayLength) {
+        DataBufferByte buffer = new DataBufferByte(bytes, byteArrayLength);
         ColorModel cm = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]{8, 8, 8}, false, false, Transparency.OPAQUE, DataBuffer.TYPE_BYTE);
         return new BufferedImage(cm, Raster.createInterleavedRaster(buffer, width, height, width * 3, 3, new int[]{0, 1, 2}, null), false, null);
     }
