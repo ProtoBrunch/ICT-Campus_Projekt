@@ -33,6 +33,7 @@ public class ClientWebcamImageListener extends Thread {
                 if(length >0) {
                     byte[] webcamIn = new byte[length];
                     webcamFromServer.readFully(webcamIn, 0, length);
+                    System.out.println(webcamIn);
                     webcamPanel.changeWebcamImageIcon(new ServerInputProcessor().byteArrayToImageIcon(webcamIn, length));
                 }
             } catch (IOException e) {
