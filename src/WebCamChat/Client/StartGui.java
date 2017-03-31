@@ -12,5 +12,6 @@ public class StartGui {
     public StartGui(){
         frame = new JFrame("Skipe");
         panel_0 = new JPanel();
+
     }
 }
