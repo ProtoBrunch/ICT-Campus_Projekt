@@ -12,6 +12,14 @@ public class StartGui {
     private JFrame frame;
     private JPanel panel_0;
     private JPanel panel_0_0;
+    private JPanel panel_0_1;
+    private JPanel panel_0_2;
+    private JPanel panel_0_3;
+    private JPanel panel_0_4;
+    private JPanel panel_0_5;
+    private JPanel panel_0_6;
+    private JPanel panel_0_7;
+    private JPanel panel_0_8;
     private JLabel ipLabel;
     private JTextArea ipTextArea;
     private JLabel portLabel;
@@ -26,6 +34,14 @@ public class StartGui {
         panel_0 = new JPanel();
 
         panel_0_0 = new JPanel();
+        panel_0_1 = new JPanel();
+        panel_0_2 = new JPanel();
+        panel_0_3 = new JPanel();
+        panel_0_4 = new JPanel();
+        panel_0_5 = new JPanel();
+        panel_0_6 = new JPanel();
+        panel_0_7 = new JPanel();
+        panel_0_8 = new JPanel();
 
         ipLabel = new JLabel("IP angeben");
         ipTextArea = new JTextArea(2,6);
