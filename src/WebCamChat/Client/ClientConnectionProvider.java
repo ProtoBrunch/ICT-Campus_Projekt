@@ -9,7 +9,7 @@ import java.net.Socket;
 public class ClientConnectionProvider {
 
     public static void main(String[] args) {
-        String host = "localhost"; //changed IP back to localhost
+        String host = "172.16.2.156"; //changed IP back to localhost
         int port = 50000;
         Socket server = null;
 
