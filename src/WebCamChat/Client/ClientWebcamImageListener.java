@@ -28,14 +28,14 @@ public class ClientWebcamImageListener extends Thread {
         WebcamChatGui webcamPanel = new WebcamChatGui();
         webcamPanel.setComponents();
         while(true){
+            byte[] bigEmpty = null;
             try {
                 int length = webcamFromServer.readInt();
-                System.out.println(length);
-                if(length >0) {
-                    byte[] webcamIn = new byte[length];
+                if(length > 0) {
+                    byte[] webcamIn = new byte[length+5];
                     webcamFromServer.readFully(webcamIn, 0, length);
-                    System.out.println(webcamIn.toString());
                     webcamPanel.changeWebcamImageIcon(new ServerInputProcessor().byteArrayToImageIcon(webcamIn, length));
+                    webcamIn = bigEmpty;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
