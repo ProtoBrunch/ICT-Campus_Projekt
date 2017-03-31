@@ -3,6 +3,7 @@ package WebCamChat.Server;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 
+import java.awt.*;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -21,7 +22,8 @@ public class ServerWebcamImageWriter extends Thread{
             this.client = client;
             outToClient = new DataOutputStream(client.getOutputStream());
             webcam = Webcam.getDefault();
-            new WebcamPanel(webcam);
+            webcam.setViewSize(new Dimension(640 , 480));
+            webcam.open();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -47,6 +47,6 @@ public class ServerInputProcessor {
     private static BufferedImage createRGBImage(byte[] bytes, int width, int height, int byteArrayLength) {
         DataBufferByte buffer = new DataBufferByte(bytes, byteArrayLength);
         ColorModel cm = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]{8, 8, 8}, false, false, Transparency.OPAQUE, DataBuffer.TYPE_BYTE);
-        return new BufferedImage(cm, Raster.createInterleavedRaster(buffer, width, height, width * 3, 3, new int[]{0, 1, 2}, null), false, null);
+        return new BufferedImage(cm, Raster.createInterleavedRaster(buffer, width-1, height-1, (width * 3)-1, 3, new int[]{0, 1, 2}, null), false, null);
     }
 }
