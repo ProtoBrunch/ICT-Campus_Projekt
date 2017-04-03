@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Wird in Main geöffnet. Erstellt neue Chats oder Webcamübertragungen.
  * Created by meiersila on 30.03.2017.
  */
 public class StartGui implements ActionListener{
@@ -34,6 +35,9 @@ public class StartGui implements ActionListener{
     private JButton chatButton;
     private JButton webcamChatButton;
 
+    /**
+     * Konstruktor der Klasse. Initiert alle Swing Komponenten
+     */
     public StartGui(){
         frame = new JFrame("Skipe");
         panel_0 = new JPanel();
@@ -61,6 +65,9 @@ public class StartGui implements ActionListener{
         webcamChatButton = new JButton("Webcam Chatraum");
     }
 
+    /**
+     * Das Frame wird geöffnet und alle Swing Komponenten entsprechend hinzugefügt.
+     */
     public void setComponents(){
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(800,550);
@@ -100,6 +107,10 @@ public class StartGui implements ActionListener{
         frame.setVisible(true);
     }
 
+    /**
+     * ActionListener ruft diese Methode.
+     * @param e Event welcher mitgeschickt wird.
+     */
     public void actionPerformed(ActionEvent e) {
         String ipadress = ipTextArea.getText();
         String portString = portTextArea.getText();
@@ -121,18 +132,21 @@ public class StartGui implements ActionListener{
                 wcg.setComponents();
 
                 ClientConnectionProvider ccp = new ClientConnectionProvider(ipadress, Integer.parseInt(portString), username, wcg);
-                //ccp.startNewServer();
+                ccp.startNewServer();
                 disposeFrame();
 
             }else if(e.getSource() == chatButton){
-                ChatGui cg = new ChatGui();
-                //TODO do stuff
-
+                //TODO create new ChatGui
                 disposeFrame();
             }
         }
     }
 
+    /**
+     * Überprüft die IPv4 mittels Regex
+     * @param ip Ip-adresse als String
+     * @return True falls die Eingabe eine IP ist.
+     */
     private boolean checkIpAdress(String ip){
         if(Pattern.matches("(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)", ip)){
             System.out.println("ip correct");
@@ -143,6 +157,11 @@ public class StartGui implements ActionListener{
         }
     }
 
+    /**
+     * Überprüft den Port mittels Regex
+     * @param port Port als String
+     * @return True falls der Port eine valide Eingabe ist.
+     */
     private boolean checkPort(String port){
         if(Pattern.matches("\\d{1,5}", port)){
             System.out.println("port correct");
@@ -153,6 +172,9 @@ public class StartGui implements ActionListener{
         }
     }
 
+    /**
+     * Schliesst das StartGui-Fenster.
+     */
     private void disposeFrame(){
         this.frame.dispose();
     }

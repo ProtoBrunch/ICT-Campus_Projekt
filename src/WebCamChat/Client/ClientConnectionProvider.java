@@ -22,9 +22,8 @@ public class ClientConnectionProvider {
     }
 
     public void startNewServer(){
-
         try{
-            server = new Socket(host,port);
+            server = new Socket(host, port);
         }
         catch(IOException e){
             e.printStackTrace();
