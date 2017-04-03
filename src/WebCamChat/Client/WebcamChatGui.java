@@ -64,6 +64,8 @@ public class WebcamChatGui implements ActionListener {
         panel_0_1_1.setLayout(new FlowLayout());
         panel_0_1_1.setBorder(new EmptyBorder(5, 10, 10, 10));
 
+        textArea_0_1_0_0.setColumns(frame.getWidth()/40);
+
         panel_0_1_1.add(textArea_0_1_0_0);
         panel_0_1_1.add(button_0_1_0_0);
 
@@ -91,7 +93,6 @@ public class WebcamChatGui implements ActionListener {
             JLabel test = new JLabel(textArea_0_1_0_0.getText());
             textArea_0_1_0_0.setText("");
             panel_0_1_0.add(test);
-            textArea_0_1_0_0.setColumns(frame.getWidth()/40);
             SwingUtilities.updateComponentTreeUI(textArea_0_1_0_0);
             SwingUtilities.updateComponentTreeUI(panel_0_1_0);
         }
